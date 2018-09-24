@@ -2,7 +2,6 @@ package com.sprouts.springdemo.data;
 
 import lombok.Data;
 import lombok.ToString;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
