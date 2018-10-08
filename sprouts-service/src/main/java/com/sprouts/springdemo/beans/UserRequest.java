@@ -2,7 +2,6 @@ package com.sprouts.springdemo.beans;
 
 import com.sprouts.springdemo.data.User;
 import lombok.Data;
-import lombok.ToString;
 import org.springframework.beans.BeanUtils;
 
 import java.time.Instant;
@@ -21,7 +20,6 @@ public class UserRequest {
     private UserRequest() {
     }
 
-    @ToString
     public static class Builder {
         private String firstName;
         private String lastName;

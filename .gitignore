@@ -1,4 +1,4 @@
-/target/
+**/target/
 !.mvn/wrapper/maven-wrapper.jar
 .DS_Store
 
@@ -24,3 +24,8 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### Node ###
+**/node/
+**/node_modules/
+**/dist/

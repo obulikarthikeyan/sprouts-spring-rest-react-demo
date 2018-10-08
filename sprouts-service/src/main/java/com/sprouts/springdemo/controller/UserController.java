@@ -8,16 +8,21 @@ import com.sprouts.springdemo.exception.GenericError;
 import com.sprouts.springdemo.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.PersistenceException;
 import java.util.List;
 import java.util.Optional;
 
 @Slf4j
+@CrossOrigin(origins = "${frontend.proxy.url}")
 @RestController
 @RequestMapping(path = "${users.api.baseURI}")
 public class UserController {
@@ -52,7 +57,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(path = "/users", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE )
+    @RequestMapping(path = "/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE )
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userRepository.findAll();
         return ResponseEntity.ok(users);
